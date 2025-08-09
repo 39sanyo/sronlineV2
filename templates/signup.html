@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <title>
+    sronline - sign up :)
+  </title>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <p class="toptext">give me your infomation.</p>  
+    <p class="paragraph">(for real this time.)</p>
+    
+    <div class="signup-form">
+      <form action="{{ url_for('signup') }}" method="post">
+        <div class="form-group">
+          <label for="username">username:</label>
+          <input type="text" id="username" name="username" class="input-field" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">email:</label>
+          <input type="email" id="email" name="email" class="input-field" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">password:</label>
+          <input type="password" id="password" name="password" class="input-field" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="confirm_password">confirm password:</label>
+          <input type="password" id="confirm_password" name="confirm_password" class="input-field" required>
+        </div>
+        
+        <button type="submit" class="signup-button">-sign up-</button>
+      </form>
+    </div>
+
+    <div class="login-link">
+      <p>already have an account? <a href="{{ url_for('login') }}">login</a></p>
+    </div>
+
+    <div class="kat">
+      <pre>
+           ___
+          (___)
+   ____
+ _\___ \  |\_/|
+\     \ \/ , , \ ___
+ \__   \ \ ="= //|||\
+  |===  \/____)_)||||
+  \______|    | |||||
+      _/_|  | | =====
+     (_/  \_)_) snd
+  _________________
+ (                _)
+  (__   '          )
+    (___    _____)
+        '--'
+      </pre>    
+    </div>
+
+    <div class="credits">
+      <p class="credit">by: santiago ochoa</p>
+      <p class="dedicated">dedicated to: reanna, for loving and always supporting me <3.</p>
+    </div>
+  </body>
+</html>

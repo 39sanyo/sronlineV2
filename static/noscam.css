@@ -1,0 +1,81 @@
+body {
+  background-color: white;
+}
+
+.signup {
+  font-size: 50px;
+  margin-top: 300px;
+  margin-bottom: 5px;
+}
+
+.center {
+  text-align: center;
+}
+
+.submit-center {
+  text-align: center;
+}
+
+.signup2 {
+  margin-bottom: 13px;
+  font-size: 10px;
+}
+
+.firstname, .lastname { 
+  border-width: 0px;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  background-color: rgb(185,187,189);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  border-radius: 14px;
+  margin-bottom: 5px;
+    }
+
+.email, .SSN {
+  margin: auto;
+  display: block;
+  border-width: 0px;
+  font-weight: bold;
+  text-align: center;
+  color:black;
+  background-color: rgb(185,187,189);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 125px;
+  padding-left: 125px;
+  border-radius: 14px;
+  margin-bottom: 5px;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+.submit {
+  margin: auto;
+  display: block;
+  font-weight: bold;
+  background-color: rgb(164, 201, 222);
+  border-radius: 14px;
+  border-width: 0px;
+  display: block;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-right: 200px;
+  padding-left: 205px;
+}
+
+.submit:hover {
+  background-color: rgb(128, 157, 173);
+  cursor:pointer;
+}
+
+.submit:active {
+  opacity: 0.7;
+}
+
+

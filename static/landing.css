@@ -1,0 +1,80 @@
+
+body {
+  font-family: Roboto Mono;
+  background-color: rgb(201, 201, 201);
+  border-width: 50px;
+    }
+
+.toptext {
+  font-family: Roboto Mono;
+  font-size: 45px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 120px;
+  margin-bottom: 20px;
+}
+
+.paragraph {
+  font-family: Roboto Mono;
+  max-width: 350px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 40px;
+}
+
+.button1, .button2, .button3, .button4{
+  font-family: Roboto Mono;
+  font-size: 17px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border: 5px;
+  border-color: black;
+  border-width: 5px;
+  border-radius: 16px;
+  background-color: rgb(150,150,150);
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  transition: background-color 0.50s, color 0.15s;
+}
+
+.button1:hover{
+  background-color: rgb(169, 29, 43);
+  cursor: pointer;
+  color: rgb(201, 201, 201);
+}
+
+.button2:hover {
+  background-color: rgb(118, 169, 29);
+  cursor: pointer;
+  color: rgb(201, 201, 201);
+}
+
+.button3:hover {
+  background-color: rgb(180, 180, 74);
+  cursor: pointer;
+  color: rgb(201, 201, 201);
+}
+.button4:hover{
+background-color: rgb(102,134,166);
+cursor: pointer;
+color: rgb(201, 201, 201);
+}
+
+.button1link {
+  text-decoration: none;
+}
+
+.kat {
+  margin-top: 340px;
+} 
+
+.credit, .dedicated {
+  margin-right: 340px; 
+  font-size: 15px;
+}
