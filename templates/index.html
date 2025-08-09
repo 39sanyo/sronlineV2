@@ -5,18 +5,35 @@
     sronline - :)
   </title>
   <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='landing.css') }}">   
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" rel="stylesheet">
   </head>
 
   <body>
+    <div class ="top_bar"> 
+      <div class="sronline"> 
+        <a class="sr_banner">sronline.us</a>
+      </div>
+      <div class="section1"> 
+        <a class="headbutton1">button1</a>
+      </div>
+      <div class="section2"> 
+        <a class="headbutton2">button2</a>
+      </div>
+      <div class = "section3"> 
+        <a class="headbutton3">button3</a>
+      </div>
+      <div class="section4"> 
+        <a class="headbutton4">button4</a>
+      </div>
+
+    </div>
   <p class="toptext">Welcome to SRonline</p>  
   <p class="paragraph">These are the projects I have been working on recently. Check them out! :)</p>
- <div class=button-center>
-      
 
+ <div class=button-center>
       <a class="button1link" href="{{ url_for('resume') }}">
     <button class="button1" type="button">-resume-</button>
       </a>
@@ -29,8 +46,8 @@
     <button class="button4" type="button">---------</button>
  </div>
 
-    <div class="login">
-      <a class="login_buttons" href="{{url_for('login')}}">login</a>
+    <div class="login-link">
+      <a class="login_buttons" href="{{url_for('login')}}">-login-</a>
 
 
 

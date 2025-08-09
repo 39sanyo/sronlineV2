@@ -5,6 +5,52 @@ body {
   border-width: 50px;
     }
 
+.top_bar{
+  display: flex;
+  border: 2px, solid, black;
+}
+
+.sronline{
+  font-size: 23px;
+  display: inline-block;
+  background-color: rgb(150,150,150);
+  border-width: 10px;
+  border-color:black;
+  border-radius: 1px;
+  padding-left: 30px;
+  padding-right: 250px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-right: 5px;
+}
+
+.section1, .section2, .section3, .section4{
+  text-align: right;
+  color: rgb(211, 211, 211);
+  border-color: black;
+  border-radius: 3px;
+  padding-left: 135px;
+  padding-right: 135px;
+  padding-top: 5px;
+  padding-bottom: 9px;
+  margin-right: 7px;
+}
+
+.section1{
+  background-color: rgb(169, 29, 43);
+
+}
+.section2{
+  background-color: rgb(118, 169, 29);
+}
+
+.section3{
+  background-color: rgb(180, 180, 74);
+}
+.section4{
+background-color: rgb(102,134,166);
+}
+
 .toptext {
   font-family: Roboto Mono;
   font-size: 45px;
@@ -71,10 +117,27 @@ color: rgb(201, 201, 201);
 }
 
 .kat {
-  margin-top: 340px;
+  margin-top: 100px;
+  margin-right: 1550px;
 } 
 
 .credit, .dedicated {
-  margin-right: 340px; 
+  margin-right: 1550px; 
   font-size: 15px;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.login-link a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
 }
