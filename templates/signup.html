@@ -15,7 +15,7 @@
     <p class="paragraph">(for real this time.)</p>
     
     <div class="signup-form">
-      <form action="{{ url_for('signup') }}" method="post">
+      <form action="/login" method="post">
         {{ form.hidden_tag()}}
         {{form.username(class='input-field')}}
         {{form.password(class='input-field')}}
