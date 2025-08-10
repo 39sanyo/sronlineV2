@@ -16,27 +16,10 @@
     
     <div class="signup-form">
       <form action="{{ url_for('signup') }}" method="post">
-        <div class="form-group">
-          <label for="username">username:</label>
-          <input type="text" id="username" name="username" class="input-field" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="email">email:</label>
-          <input type="email" id="email" name="email" class="input-field" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="password">password:</label>
-          <input type="password" id="password" name="password" class="input-field" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="confirm_password">confirm password:</label>
-          <input type="password" id="confirm_password" name="confirm_password" class="input-field" required>
-        </div>
-        
-        <button type="submit" class="signup-button">-sign up-</button>
+        {{ form.hidden_tag()}}
+        {{form.username(class='input-field')}}
+        {{form.password(class='input-field')}}
+        {{form.submit(class='signup-button')}}
       </form>
     </div>
 

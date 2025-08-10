@@ -16,20 +16,22 @@
     
     <div class="login-form">
       <form action="{{ url_for('login') }}" method="post">
-        <div class="form-group">
-          <label for="username">username:</label>
-          <input type="text" id="username" name="username" class="input-field">
-        </div>
-        
-        <div class="form-group">
-          <label for="password">password:</label>
-          <input type="password" id="password" name="password" class="input-field">
-        </div>
-        
-        <button type="submit" class="login-button">-login-</button>
+        {{form.hidden_tag()}}
+        {{form.username(class='input-field')}}
+        {{form.password(class='input-field')}}
+        {{form.submit(class='login-button')}}
       </form>
     </div>
 
     <div class="signup-link">
-      <p>don't have an account? <a href="{{ url_for('signup') }}">start here</a></p>
+      <p>don't have an account? <a href="{{ url_for('signup') }}">sign up</a></p>
     </div>
+
+    <div class="kat">
+  
+      <pre>
+
+      <p class="dedicated">dedicated to: reanna, for loving and always supporting me <3.</p>
+    </div>
+  </body>
+</html>
