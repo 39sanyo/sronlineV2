@@ -21,6 +21,16 @@ body {
   margin-bottom: 40px;
 }
 
+.fail {
+  color: red;
+  font-family: Roboto Mono;
+  max-width: 350px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 10px;
+}
+
 .signup-form {
   max-width: 300px;
   margin: 0 auto;
@@ -60,7 +70,7 @@ body {
 }
 
 .signup-button:hover {
-  background-color: rgb(29, 169, 43);
+  background-color: rgb(118, 169, 29);
   cursor: pointer;
   color: rgb(201, 201, 201);
 }

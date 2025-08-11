@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
@@ -33,11 +33,6 @@ class RegisterForm(FlaskForm):
     password = PasswordField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Password"})
     submit = SubmitField("Register")
 
-    def validate_username(self, username):
-        existing_user_username = User.query.filter_by(username=username.data).first()
-        if existing_user_username:
-            raise ValidationError("That username already exists. Please choose another one.")
-
 class LoginForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
     password = PasswordField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Password"})
@@ -69,8 +64,12 @@ def login():
             if bcrypt.check_password_hash(user.password, form.password.data):
                 login_user(user)
                 return redirect(url_for('dashboard'))
-
-    return render_template("login.html", form = form)
+            else:
+                return redirect(url_for('login_fail'))
+        else:
+            return redirect(url_for('login_fail'))
+    else:
+        return render_template("login.html", form = form)
 
 @app.route('/dashboard', methods = ['GET', 'POST'])
 @login_required
@@ -88,17 +87,30 @@ def logout():
 @app.route('/signup', methods = ['GET', 'POST'])
 def signup():
     form = RegisterForm()
-
     if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data)
-        new_user = User(username=form.username.data, password=hashed_password)
+        user = User.query.filter_by(username=form.username.data).first()
+        if user:
+            return redirect(url_for("signup_fail"))
+        else:
+            hashed_password = bcrypt.generate_password_hash(form.password.data)
+            new_user = User(username=form.username.data, password=hashed_password)
 
-        db.session.add(new_user)
-        db.session.commit()
+            db.session.add(new_user)
+            db.session.commit()
 
         return redirect(url_for('login'))
-
     return render_template("signup.html", form = form)
+
+# if user fails sign in or login
+@app.route('/login_fail')
+def login_fail():
+        flash('Invalid username/password, please try again.', 'error')
+        return redirect(url_for("login"))
+
+@app.route('/signup_fail')
+def signup_fail():
+        flash('Username is already taken, please choose another one.', 'error')
+        return redirect(url_for("signup"))
 
 
 

@@ -12,7 +12,15 @@
 
   <body>
     <p class="toptext">give me your infomation.</p>  
-    <p class="paragraph">(for real this time.)</p>
+    <p class="paragraph">(but like, actually this time...)</p>
+
+      {% with messages = get_flashed_messages() %}
+          {% if messages %}
+                {% for msg in messages%}
+                    <p class= "fail">{{msg}}</p>
+                {% endfor %}
+         {% endif %}
+    {% endwith %}
     
     <div class="signup-form">
       <form method="POST" action="">
@@ -25,6 +33,6 @@
     </div>
 
     <div class="login-link">
-      <p>already have an account? <a href="{{ url_for('login') }}">login</a></p>
+      <p>already have an account? <a href="{{ url_for('login') }}">-login-</a></p>
     </div>
 

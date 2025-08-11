@@ -21,6 +21,16 @@ body {
   margin-bottom: 40px;
 }
 
+.fail {
+  color: red;
+  font-family: Roboto Mono;
+  max-width: 350px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 10px;
+}
+
 .login-form {
   max-width: 300px;
   margin: 0 auto;
@@ -87,5 +97,21 @@ body {
 }
 
 .singup-link a:hover {
+  text-decoration: underline;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.back-link a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-link a:hover {
   text-decoration: underline;
 }
