@@ -15,12 +15,13 @@
     <p class="paragraph">(for real this time.)</p>
     
     <div class="signup-form">
-      <form action="/login" method="post">
-        {{ form.hidden_tag()}}
+      <form method="POST" action="">
+        {{form.hidden_tag()}}
         {{form.username(class='input-field')}}
         {{form.password(class='input-field')}}
         {{form.submit(class='signup-button')}}
       </form>
+      
     </div>
 
     <div class="login-link">
