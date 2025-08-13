@@ -8,14 +8,13 @@ body {
 .top_bar{
   display: flex;
   border: 2px, solid, black;
+  height: 35px;
 }
 
 .sronline{
   font-size: 23px;
   display: inline-block;
   background-color: rgb(150,150,150);
-  border-width: 10px;
-  border-color:black;
   border-radius: 1px;
   padding-left: 30px;
   padding-right: 200px;
@@ -25,11 +24,12 @@ body {
 }
 
 .section1, .section2, .section3, .section4{
+  display: inline-block;
   text-align: right;
   color: rgb(211, 211, 211);
   border-color: black;
   border: 2px solid black;
-  border-radius: 3px;
+  border-radius: 4px;
   padding-left: 135px;
   padding-right: 135px;
   padding-top: 5px;
@@ -37,6 +37,9 @@ body {
   margin-right: 7px;
 }
 
+.section1, .section2, .section3, .section4:hover{
+  cursor: pointer;
+}
 .section1{
   background-color: rgb(169, 29, 43);
 
@@ -49,7 +52,7 @@ body {
   background-color: rgb(180, 180, 74);
 }
 .section4{
-background-color: rgb(102,134,166);
+ background-color: rgb(102,134,166);
 }
 
 .toptext {

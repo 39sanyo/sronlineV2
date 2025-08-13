@@ -74,7 +74,11 @@ def login():
 @app.route('/dashboard', methods = ['GET', 'POST'])
 @login_required
 def dashboard():
-    return render_template('dashboard.html')
+    if current_user.is_authenticated:
+        username = current_user.username
+        return render_template('dashboard.html', username = username)
+    else:
+        return "User is not authenticated"
 
 #logout
 @app.route('/logout', methods=('GET', 'POST'))

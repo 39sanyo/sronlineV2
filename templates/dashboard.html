@@ -1,10 +1,41 @@
 <!DOCTYPE>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
   </head>
   <body>
-    <h1>Hello! you are logged in!</h1>
+
+    <div class="map">
+
+    <div class="top_container">
+    <div class ="top_bar"> 
+      <div class="sronline"> 
+        <a class="sr_banner">{{username}}.us</a>
+      </div>
+      <div class="section1"> 
+        <a class="headbutton1">button1</a>
+      </div>
+      <div class="section2"> 
+        <a class="headbutton2">button2</a>
+      </div>
+      <div class = "section3"> 
+        <a class="headbutton3">button3</a>
+      </div>
+      <div class="section4"> 
+        <a class="headbutton4">button4</a>
+      </div>
+      
+    </div>
+    <iframe class="if_map" src="https://map.sronline.us" height="650" width="1200"></iframe>
+
+    </div>
+      <div class="logout-link">
+      <a href="{{ url_for('logout') }}">logout</a>
+        
+      </div>
   </body>
 </html>
 

@@ -1,0 +1,35 @@
+.map {
+  text-align: center;
+  margin-top: auto;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.if_map {
+  margin-top: 20px;
+  margin-left: auto;
+  border: 5px solid gray;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.top_container {
+display: block;
+}
+
+.logout-link {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.logout-link a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logout-link a:hover {
+  text-decoration: underline;
+}
