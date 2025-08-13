@@ -1,0 +1,18 @@
+http://sronline.us {
+	redir https://sronline.us{uri} 301
+}
+
+http://map.sronline.us {
+	redir https://map.sronline.us{uri} 301
+}
+
+https://sronline.us {
+	reverse_proxy localhost:8000
+}
+
+https://map.sronline.us {
+	reverse_proxy localhost:8123
+}
+
+
+
