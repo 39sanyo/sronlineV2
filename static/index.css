@@ -37,6 +37,16 @@ body {
   margin-right: 7px;
 }
 
+.headbutton1 .headbutton2 .headbutton3 .headbutton4 {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.headbutton1 .headbutton2 .headbutton3 .headbutton4:hover {
+  text-decoration: underline;
+}
+
 .section1, .section2, .section3, .section4:hover{
   cursor: pointer;
 }

@@ -1,17 +1,16 @@
 .map {
   text-align: center;
   margin-top: auto;
-  display: block;
+  display: inline-block;
   margin-right: auto;
   margin-left: auto;
 }
 
 .if_map {
-  margin-top: 20px;
-  margin-left: auto;
   border: 5px solid gray;
   border-radius: 5px;
   box-shadow: none;
+  display: inline-block;
 }
 
 .top_container {
@@ -32,4 +31,34 @@ display: block;
 
 .logout-link a:hover {
   text-decoration: underline;
+}
+.head {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  background-color: rgb(150,150,150);
+  border: 2px solid gray;
+}
+
+.box_container {
+ display: inline-block;
+ 
+}
+
+.bottom {
+  display: flex;
+  margin-top: 0px;
+}
+
+.box {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  padding-top: 74.50px;
+  padding-bottom: 74.50px;
+  padding-left: 200px;
+  padding-right: 200px;
+  display: block;
+  background-color: rgb(150,150,150);
+  border: 2px solid gray;
+  border-radius: 10px;
+  
 }

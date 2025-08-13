@@ -105,7 +105,7 @@ def signup():
         return redirect(url_for('login'))
     return render_template("signup.html", form = form)
 
-# if user fails sign in or login
+# if user fails sign up or login
 @app.route('/login_fail')
 def login_fail():
         flash('Invalid username/password, please try again.', 'error')

@@ -13,7 +13,7 @@
     <div class="top_container">
     <div class ="top_bar"> 
       <div class="sronline"> 
-        <a class="sr_banner">{{username}}.us</a>
+        <a class="sr_banner">sronline.us</a>
       </div>
       <div class="section1"> 
         <a class="headbutton1">button1</a>
@@ -25,16 +25,40 @@
         <a class="headbutton3">button3</a>
       </div>
       <div class="section4"> 
-        <a class="headbutton4">button4</a>
+            <a class="headbutton4 logout-link" href="{{url_for('logout')}}">logout</a>
       </div>
-      
+        </div>
     </div>
-    <iframe class="if_map" src="https://map.sronline.us" height="650" width="1200"></iframe>
 
+      <div class="head">
+        <p>hello {{username}}!!!!!!! :33333</p>
+      </div>
+
+     
+      <div class="bottom">
+          <iframe class="if_map" src="https://map.sronline.us" height="750" width="1300"></iframe>
+            <div class="box_container">
+                <div class="box"
+                  <a class="in-box1">box1</a>
+                </div>
+                <div class="box">
+                  <a  class="in-box2">box2</a>
+                </div>
+                <div class="box">
+                  <a class="in-box3">box3</a>
+                </div>
+                <div class="box">
+                  <a class="in-box4">box4</a>
+                </div
+        </div>
+        
+      </div>
     </div>
+
+
+
       <div class="logout-link">
       <a href="{{ url_for('logout') }}">logout</a>
-        
       </div>
   </body>
 </html>
