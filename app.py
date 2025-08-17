@@ -6,9 +6,12 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
 
+# please create config file please
+from config import SECRET_KEY
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sr_online.db?check_same_thread=False'
-app.config['SECRET_KEY'] = 'secret'
+app.config['SECRET_KEY'] = 'SECRET_KEY'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
@@ -80,6 +83,10 @@ def dashboard():
     else:
         return "User is not authenticated"
 
+@app.route('/dashboard/character', methods = ['GET', 'POST'])
+@login_required
+def character():
+    return render_template('character.html')
 #logout
 @app.route('/logout', methods=('GET', 'POST'))
 @login_required

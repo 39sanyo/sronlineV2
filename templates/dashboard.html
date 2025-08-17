@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
 
@@ -13,10 +14,10 @@
     <div class="top_container">
     <div class ="top_bar"> 
       <div class="sronline"> 
-        <a class="sr_banner">sronline.us</a>
+            <a href="{{url_for('site')}}">sronline.us</a>
       </div>
       <div class="section1"> 
-        <a class="headbutton1">button1</a>
+            <a class="headbutton1" href="{{url_for('character')}}">character</a>
       </div>
       <div class="section2"> 
         <a class="headbutton2">button2</a>
@@ -25,18 +26,24 @@
         <a class="headbutton3">button3</a>
       </div>
       <div class="section4"> 
-            <a class="headbutton4 logout-link" href="{{url_for('logout')}}">logout</a>
+            <a class="headbutton4">button4</a>
       </div>
         </div>
     </div>
 
       <div class="head">
+        <div class="welcome">
         <p>hello {{username}}!!!!!!! :33333</p>
+        </div>
+        <div class="logout-link">
+        <a href="{{ url_for('logout') }}">logout</a>
+        </div>
+
       </div>
 
      
       <div class="bottom">
-          <iframe class="if_map" src="https://map.sronline.us" height="750" width="1300"></iframe>
+        <iframe class="if_map" src="https://map.sronline.us/?chatname={{username}}" height="750" width="1300"></iframe>
             <div class="box_container">
                 <div class="box"
                   <a class="in-box1">box1</a>
@@ -57,9 +64,6 @@
 
 
 
-      <div class="logout-link">
-      <a href="{{ url_for('logout') }}">logout</a>
-      </div>
   </body>
 </html>
 

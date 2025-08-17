@@ -18,10 +18,13 @@ display: block;
 }
 
 .logout-link {
+  display: block;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  border: color 15px solid black;
 }
+
 
 .logout-link a {
   color: black;
@@ -32,11 +35,35 @@ display: block;
 .logout-link a:hover {
   text-decoration: underline;
 }
+
+.headbutton4 {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+
+.headbutton4 a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.headbutton4 a:hover {
+  text-decoration: underline;
+}
+
 .head {
+  display: flex;
   margin-bottom: 15px;
   margin-top: 15px;
   background-color: rgb(150,150,150);
   border: 2px solid gray;
+}
+
+.welcome {
+  margin-right: 1400px;
+  display: inline-block;
 }
 
 .box_container {
