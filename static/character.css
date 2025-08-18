@@ -1,0 +1,24 @@
+.forms {
+  display: inline-block;
+}
+
+.box {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  padding-top: 74.50px;
+  padding-bottom: 74.50px;
+  padding-left: 200px;
+  padding-right: 200px;
+  display: inline-block;
+  background-color: rgb(150,150,150);
+  border: 2px solid gray;
+  border-radius: 10px;
+}
+
+.char {
+  display: inline-block;
+}
+
+.char_stat {
+  display: inline-block;
+}
