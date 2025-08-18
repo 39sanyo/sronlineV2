@@ -4,11 +4,13 @@ Personal project I've been working on.
 
 # --steps--
 1. Open venv
-2. from venv do "flask shell"
-3. input
+2. Create config.py
+3. add SECRET_KEY = "what ever key you want to add"
+4. from venv do "flask shell"
+5. input
    - from app import db
    - db.create_all()
-4. everything should be ready to go (hopefully...)!
+6. everything should be ready to go (hopefully...)!
 
 # --TODO--
 (10/28/2025) 

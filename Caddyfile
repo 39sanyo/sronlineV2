@@ -11,7 +11,7 @@ https://sronline.us {
 }
 
 https://map.sronline.us {
-	reverse_proxy localhost:8001
+	reverse_proxy localhost:8100
 }
 
 
