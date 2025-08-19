@@ -128,7 +128,7 @@ def character():
         # fetching user_character from Databse
         conn = sqlite3.connect('instance/sr_online.db')
         cursor = conn.cursor()
-        cursor.execute(f"SELECT name, race, hero_class, background, alignment, proficiencies, equipment, backstory FROM user_character WHERE user_id = {id}")
+        cursor.execute(f"SELECT character_id,name, race, hero_class, background, alignment, proficiencies, equipment, backstory FROM user_character WHERE user_id = {id}")
         data = cursor.fetchall()
         conn.close()
     else:

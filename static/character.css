@@ -2,7 +2,12 @@
   display: inline-block;
 }
 
+.Characters {
+  display: flex;
+}
+
 .box {
+  display: flex;
   margin-left: 10px;
   margin-bottom: 20px;
   padding-top: 74.50px;
@@ -21,4 +26,9 @@
 
 .char_stat {
   display: inline-block;
+}
+
+.right_text {
+  text-align: left;
+  margin-right: -500px;
 }
