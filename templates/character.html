@@ -3,75 +3,133 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" type="" href="{{url_for('static', filename='index.css')}}">
     <link rel="stylesheet" type="" href="{{url_for('static', filename='character.css')}}">
-    <link rel="stylesheet" type="" href="{{url_for('static', filename='signup.css')}}">
+    <link rel="stylesheet" type="" href="{{url_for('static', filename='login.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" rel="stylesheet">
     <title></title>
     <link href="css/style.css" rel="stylesheet">
+    <style>
+      /* Button styling - top left below header */
+      #toggleForm {
+        margin: 10px 0 20px 0;
+        display: inline-block;
+      }
+      
+      /* Form styling - slides from right */
+      #creationForm {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100%;
+        width: 800px;
+        max-width: 80%;
+        background: rgb(201,201,201);
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        transition: right 0.3s ease-out;
+        z-index: 100;
+        overflow-y: auto;
+        padding: 20px;
+      }
+      
+      #creationForm.visible {
+        right: 0;
+      }
+      
+      /* Dark overlay when form is visible */
+      #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 99;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease-out;
+      }
+      
+      #creationForm.visible ~ #overlay {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      
+      .form-container {
+        height: 100%;
+      }
+    </style>
   </head>
   <body>
-  <p>minecraft username: {{mc}}</p>
-    <a href="{{url_for('dashboard')}}">dashboard</a>
-  </div>
+    <p>minecraft username: {{mc}}</p>
+    
+    <!-- Button in normal document flow, top left -->
+    <button id="toggleForm" class="green-button">Create New Character</button>
+    <button id = "toggleForm" class="red-button"><a class="links" href="{{url_for('edit')}}">Edit Character</a></button>
 
-<h1>Characters</h1>
-<div class='Characters'>
-  <div class="box">
+    <h1>Characters</h1>
+    <div>
+      <div class="box">
         {% if data == 'False'%}
           <p>No Characters</p>
-
         {%else%}
           <div class="char">
             {% for row in data%}
               <p>_____________________________________</p>
-              <p>ID: {{row[0]}}</p>
-              <p>Name: {{ row[1]}}</p>
-              <p>Race: {{ row[2]}}</p>
-              <p>Class: {{ row[3]}}</p>
-              <p>Background: {{ row[4]}}</p>
-              <p>Alignment: {{ row5}}</p>
-              <p>Proficiencies: {{ row[6]}}</p>
-              <p>Equipment: {{ row[7]}}</p>
-              <p>Backstory: {{ row[8]}}</p>
-          <div class="char_stat">
-              <p>Health: </p>
-              <p>XP: </p>
-              <p>Items: </p>
-              <p>Special: </p>
-        </div>
+              <p>Name: {{ row[0]}}</p>
+              <p>Race: {{ row[1]}}</p>
+              <p>Class: {{ row[2]}}</p>
+              <p>Background: {{ row[3]}}</p>
+              <p>Alignment: {{ row[4]}}</p>
+              <p>Proficiencies: {{ row[5]}}</p>
+              <p>Equipment: {{ row[6]}}</p>
+              <p>Backstory: {{ row[7]}}</p>
+              <div class="char_stat">
+                <p>Health: </p>
+                <p>XP: </p>
+                <p>Items: </p>
+                <p>Special: </p>
+              </div>
             {%endfor%}
         {%endif%}
-        </div>
+          </div>
+      </div>
+    </div>
 
-  </div>
-
-  <div class="box">
-        <div class="right_text">
-          <a href="">edit</a>
-          <a href="">remove</a>
-          
-        </div>
+    <!-- Form that slides from right -->
+    <div id="creationForm">
+      <div class="form-container">
+        <form method='POST' action="">
+          {{form.hidden_tag()}}
+          {{form.name(class='input-field')}}
+          {{form.race(class='input-field')}}
+          {{form.hero_class(class='input-field')}}
+          {{form.background(class='input-field')}}
+          {{form.alignment(class='input-field')}}
+          {{form.proficiencies(class='input-field')}}
+          {{form.equipment(class='input-field')}}
+          {{form.backstory(class='input-field')}}
+          {{form.submit(class='login-button')}}
+        </form>
+      </div>
+    </div>
     
-  </div>
+    <!-- Overlay that appears when form is visible -->
+    <div id="overlay"></div>
+
+    <script>
+      document.getElementById('toggleForm').addEventListener('click', function() {
+        const form = document.getElementById('creationForm');
+        form.classList.toggle('visible');
+        this.textContent = form.classList.contains('visible') ? 'Hide Form' : 'Create New Character';
+      });
       
-</div>
-<h1>Character Creation</h1>
-<div class="box">
-    <form method='POST' action="">
-      {{form.hidden_tag()}}
-      {{form.name(class='input-field')}}
-      {{form.race(class='input-field')}}
-      {{form.hero_class(class='input-field')}}
-      {{form.background(class='input-field')}}
-      {{form.alignment(class='input-field')}}
-      {{form.proficiencies(class='input-field')}}
-      {{form.equipment(class='input-field')}}
-      {{form.backstory(class='input-field')}}
-      {{form.submit(class='signup-button')}}
-    </form>
-  </div>
+      // Close form when clicking on overlay
+      document.getElementById('overlay').addEventListener('click', function() {
+        document.getElementById('creationForm').classList.remove('visible');
+        document.getElementById('toggleForm').textContent = 'Create New Character';
+      });
+    </script>
 
   </body>
 </html>

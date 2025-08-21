@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" type="" href="{{url_for('static', filename='index.css')}}">
+    <link rel="stylesheet" type="" href="{{url_for('static', filename='character.css')}}">
+    <link rel="stylesheet" type="" href="{{url_for('static', filename='signup.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" rel="stylesheet">
+    <title></title>
+  </head>
+  <body>
+    <div class = "char_list">
+      
+    {% if data == 'False'%}
+      <p>No Characters</p>
+
+    {%else%}
+      <div class="char">
+        {% for row in data%}
+          <h3>Name: {{row[1]}}</h3>
+          <p>ID: {{row[0]}}</p>
+        {% endfor %}
+    {% endif %}
+    </div>
+
+
+    <div class="ID">
+    {{form.hidden_tag()}}
+    {{form.id(class='input-field')}}
+    {{form.new_name(class='input-field')}}
+    {{form.new_race(class='input-field')}}
+    {{form.new_class(class='input-field')}}
+    {{form.new_background(class='input-field')}}
+    {{form.new_alignment(class='input-field')}}
+    {{form.new_proficiencies(class='input-field')}}
+    {{form.new_equipment(class='input-field')}}
+    {{form.new_backstory(class='input-field', rows=10, col=50)}}
+    {{form.submit(class='signup-button')}}
+        <button href"{{url_for('character')}}" type="button" class="green-button"><a  class ="links" href="{{url_for('character')}}">Back to character</a></button>
+    </div>
+  
+  </body>
+</html>

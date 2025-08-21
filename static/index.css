@@ -179,3 +179,51 @@ color: rgb(201, 201, 201);
 .login-link a:hover {
   text-decoration: underline;
 }
+
+
+.links {
+  color: black;
+  text-decoration: none;
+}
+
+.links :hover {
+  text-decoration: underline;
+}
+
+.green-button {
+  font-family: Roboto Mono;
+  font-size: 17px;
+  padding: 15px 50px;
+  margin-bottom: 10px;
+  border: 5px solid black;
+  border-radius: 16px;
+  background-color: rgb(150,150,150);
+  display: block;
+  margin: 30px auto;
+  transition: background-color 0.50s, color 0.15s;
+}
+
+.green-button:hover {
+  background-color: rgb(118, 169, 29);
+  cursor: pointer;
+  color: rgb(201, 201, 201);
+}
+
+.red-button {
+  font-family: Roboto Mono;
+  font-size: 17px;
+  padding: 15px 50px;
+  border: 5px solid black;
+  border-radius: 16px;
+  background-color: rgb(150,150,150);
+  display: block;
+  margin: 30px auto;
+  transition: background-color 0.50s, color 0.15s;
+}
+
+.red-button:hover {
+  background-color: rgb(169, 29, 43);
+  cursor: pointer;
+  color: rgb(201, 201, 201);
+}
+

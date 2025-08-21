@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import InputRequired, Length, ValidationError, Email
 from flask_bcrypt import Bcrypt
 from datetime import datetime
@@ -69,12 +69,25 @@ class CharacterCreator(FlaskForm):
     name = StringField(validators=[InputRequired(), Length(min=1, max=40)], render_kw={"placeholder": "Name"})
     race = StringField(validators=[InputRequired(), Length(min=1, max=20)], render_kw={"placeholder": "Race"})
     hero_class = StringField(validators=[InputRequired(), Length(min=1, max=20)], render_kw={"placeholder": "Class"})
-    background = StringField(validators=[InputRequired(), Length(min=1, max=20)], render_kw={"placeholder": "Background"})
+    background = StringField(validators=[InputRequired(), Length(min=1, max=80)], render_kw={"placeholder": "Background"})
     alignment = StringField(validators=[InputRequired(), Length(min=1, max=20)], render_kw={"placeholder": "Alignment"})
     proficiencies = StringField(validators=[InputRequired(), Length(min=1, max=80)], render_kw={"placeholder": "Proficiencies"})
     equipment = StringField(validators=[InputRequired(), Length(min=1, max=220)], render_kw={"placeholder": "Equipment"})
-    backstory = StringField(validators=[Length(min=1, max=220)], render_kw={"placeholder": "Backstory"})
+    backstory = TextAreaField(validators=[Length(min=1, max=220)], render_kw={"placeholder": "Backstory"})
     submit = SubmitField("Create Character")
+
+class CharacterEdit(FlaskForm):
+    id = StringField(validators=[Length(min=1, max=40)], render_kw={"placeholder": "Select ID of Character You want to edit (You don't need to edit everything)"})
+    new_name = StringField(validators=[Length(min=1, max=40)], render_kw={"placeholder": "New Name"})
+    new_race= StringField(validators=[Length(min=1, max=40)], render_kw={"placeholder": "New Race"})
+    new_class= StringField(validators=[Length(min=1, max=40)], render_kw={"placeholder": "New Class"})
+    new_background= StringField(validators=[Length(min=1, max=80)], render_kw={"placeholder": "New Background"})
+    new_alignment= StringField(validators=[Length(min=1, max=40)], render_kw={"placeholder": "New Alignment"})
+    new_proficiencies= StringField(validators=[Length(min=1, max=80)], render_kw={"placeholder": "New Proficiencies"})
+    new_equipment= StringField(validators=[Length(min=1, max=220)], render_kw={"placeholder": "New Equipment"})
+    new_backstory= TextAreaField(validators=[Length(min=1, max=220)], render_kw={"placeholder": "New Backstory"})
+    submit= SubmitField("Finalize Edits")
+
 
 # landing
 @app.route('/', methods = ['GET', 'POST'])
@@ -128,12 +141,11 @@ def character():
         # fetching user_character from Databse
         conn = sqlite3.connect('instance/sr_online.db')
         cursor = conn.cursor()
-        cursor.execute(f"SELECT character_id,name, race, hero_class, background, alignment, proficiencies, equipment, backstory FROM user_character WHERE user_id = {id}")
+        cursor.execute(f"SELECT character_id,name, race, hero_class, alignment, equipment FROM user_character WHERE user_id = {id}")
         data = cursor.fetchall()
         conn.close()
     else:
         data = "False"
-
 
     if form.validate_on_submit():
         new_character = UserCharacter(user_id = id, name=form.name.data, race=form.race.data, hero_class=form.hero_class.data, background=form.background.data, alignment=form.alignment.data, proficiencies=form.proficiencies.data, equipment=form.equipment.data, backstory=form.backstory.data,)
@@ -143,6 +155,31 @@ def character():
 
 
     return render_template('character.html', username = username, mc=mc, form=form, data = data)
+
+
+@app.route('/dashboard/character/edit')
+@login_required
+def edit():
+    form = CharacterEdit()
+    id = current_user.id
+    
+    if character:
+        conn = sqlite3.connect('instance/sr_online.db')
+        cursor = conn.cursor()
+        cursor.execute(f"SELECT character_id, name, race, hero_class, background, alignment, proficiencies, equipment, backstory FROM user_character WHERE user_id = {id}")
+        data = cursor.fetchall()
+        char_id = data[0]
+        conn.close()
+    else:
+        data = "False"
+
+    if form.validate_on_submit():
+        new_character = UserCharacter(new_name=form.name.data, new_race=form.race.data, new_hero_class=form.hero_class.data, new_background=form.background.data, new_alignment=form.alignment.data, new_proficiencies=form.proficiencies.data, new_equipment=form.equipment.data, new_backstory=form.backstory.data,)
+        db.session.add(new_character)
+        db.session.commit()
+        return redirect(url_for('edit'))
+
+    return render_template('edit.html', form=form, data=data, id=char_id)
 
 #logout
 @app.route('/logout', methods=('GET', 'POST'))
